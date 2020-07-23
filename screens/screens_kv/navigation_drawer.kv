@@ -1,0 +1,54 @@
+<NavigationDrawer>:
+    anchor: "right"
+    GridLayout:
+        spacing: 10, 0
+        padding: 25, 10
+        size_hint_y: 1
+        cols: 1
+
+        GridLayout:
+            spacing: 0, 10
+            padding: 0, 0
+            cols: 1
+
+            MDRectangleFlatIconButton:
+                text: "Account"
+                icon: "account"
+                font_size: 25
+                pos: 100, 100
+                width: 200
+
+
+            GridLayout:
+                cols: 2
+                MDRectangleFlatIconButton:
+                    id: metric_button
+                    text: "Metric"
+                    icon: "weight"
+                    font_size: 17
+                    width: 100
+                    on_release:
+                        root.button_selected(self, [metric_button, imperial_button])
+
+                MDRectangleFlatIconButton:
+                    id: imperial_button
+                    text: "Imperial"
+                    icon: "weight"
+                    font_size: 17
+                    width: 100
+                    on_release:
+                        root.button_selected(self, [metric_button, imperial_button])
+
+        GridLayout:
+            spacing: 0, 0
+            padding: 12.5, 0
+            width: 200
+            cols:1
+            FloatInput:
+                input_type: "number"
+                hint_text: "Weight(kg):"
+                hint_color: rgba("#ff8f05")
+
+            FloatInput:
+                input_type: "number"
+                hint_text: "Height(cm):"

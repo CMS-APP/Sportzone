@@ -1,0 +1,77 @@
+<MDTextField>:
+    font_name: "Geosans"
+    font_size: 22
+    color_mode: "custom"
+    line_color_focus: rgba('#ff8f05')
+
+<Label>:
+    font_name: "Geosans"
+
+<MDRaisedButton>:
+    font_name: "Geosans"
+    font_size: 25
+    elevation: 10
+
+<LoginScreen>:
+    name: "login_screen"
+    login_btn: login_btn
+    signup_btn: signup_btn
+    FloatLayout:
+        Label:
+            text: "Sportzone"
+            font_name: "Geosans"
+            font_size: 100
+            color: (0, 0, 0, 1)
+            size_hint: 0.1, 0.1
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+
+        MDTextField:
+            id: email_input
+            mode: "rectangle"
+            pos_hint: {"center_x": 0.5, "center_y": 0.6}
+            size_hint: 0.5, 0.1
+            hint_text: "Email:"
+            icon_right: "email"
+
+        MDTextField:
+            id: password_input
+            mode: "rectangle"
+            pos_hint: {"center_x": 0.5, "center_y": 0.45}
+            size_hint: 0.5, 0.1
+            hint_text: "Password:"
+            icon_right: "key"
+            password: True
+
+        MDRaisedButton:
+            id: login_btn
+            mode: "rectangle"
+            text: "Login!"
+            pos_hint: {"x": 0.25, "center_y": 0.2}
+            size_hint: 0.20, 0.1
+            color_mode: "custom"
+            md_bg_color: rgba('#ff8f05')
+            text_color: 0, 0, 0, 1
+            on_release:
+                root.stop()
+                app.screen_action("home_screen", "left")
+
+        MDRaisedButton:
+            id: signup_btn
+            text: "Sign Up!"
+            pos_hint: {"x": 0.55, "center_y": 0.2}
+            size_hint: 0.20, 0.1
+            color_mode: "custom"
+            md_bg_color: rgba('#ff8f05')
+            text_color: 0, 0, 0, 1
+            on_release:
+                root.stop()
+                app.screen_action("signup_screen", "up", "R/T").start()
+
+        MDTextButton:
+            font_name: "Geosans"
+            font_size: 25
+            underline: True
+            text: "Forgot Password?"
+            color: (0, 0, 0, 1)
+            pos_hint: {"center_x": 0.5, "center_y": 0.35}
+            size_hint: 0.20, 0.1

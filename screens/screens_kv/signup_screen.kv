@@ -1,0 +1,34 @@
+<SignupScreen>:
+    name: "signup_screen"
+    FloatLayout:
+        canvas:
+            Color:
+                rgba: rgba('#ffffff')
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+            Color:
+                rgba: rgba('#ff8f05')
+            Rectangle:
+                pos: self.pos[0], self.height*0.8
+                size: self.size[0], self.size[1]*0.2
+
+            Color:
+                rgba: rgba('#8a8a8a')
+            Rectangle:
+                pos: self.pos[0], self.height*0.8
+                size: self.size[0], 1
+
+        MDLabel:
+            text: "Sportzone"
+            size_hint: 1, 0.2
+            pos_hint: {"y":0.8}
+            halign: "center"
+            font_size: 100
+
+        ProgressBar:
+            id: progress_bar
+            pos_hint: {"y": 0.3}
+            max: 100
+            value: 0

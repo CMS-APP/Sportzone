@@ -1,0 +1,123 @@
+<MDRectangleFlatIconButton>:
+    font_name: "Geosans"
+    color_mode: "custom"
+    md_bg_color: rgba("#ff8f05")
+    text_color: rgba("#000000")
+
+<MDTextField>:
+    font_size: 20
+    width: 100
+    input_type: "number"
+
+<GridLayout>:
+    size_hint_y: None
+    height: self.minimum_height
+
+<MDIconButton>:
+    color_mode: "custom"
+    md_bg_color: rgba('#ffffff')
+    elevation: 0
+    user_font_size: "64sp"
+
+<InfoCard>:
+    size_hint: self.size[0] / 2, None
+    elevation: 11
+    MDLabel:
+        id: Label
+
+
+<HomeScreen>:
+    name: "home_screen"
+    date: date
+    NavigationLayout:
+        ScreenManager:
+            Screen:
+                id: screen
+                FloatLayout:
+                    canvas:
+                        Color:
+                            rgba: rgba('#ffffff')
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+                        Rectangle:
+                            source: "screens/screens_kv/gym_cartoon.jpg"
+                            pos: 0, Window.size[1]-200
+                            size: Window.size[0], 200
+
+                        Color:
+                            rgba: rgba('#8a8a8a')
+                        Rectangle:
+                            pos: 0, 80
+                            size: self.size[0], 1
+
+                        Color:
+                            rgba: rgba('#8a8a8a')
+                        Rectangle:
+                            pos: self.size[0]/3, 0
+                            size: self.size[0]/ self.size[0], 80
+
+                        Color:
+                            rgba: rgba('#8a8a8a')
+                        Rectangle:
+                            pos: 2 * self.size[0]/3, 0
+                            size: self.size[0]/ self.size[0], 80
+
+                    Label:
+                        id: date
+                        color: 0, 0, 0, 1
+                        font_name: "Geosans"
+                        font_size: 30
+                        pos_hint: {"center_x":0.5, "center_y":0.96}
+                        size: screen.size[0]/10, 0
+
+                    MDIconButton:
+                        theme_text_color: "Custom"
+                        text_color: rgba('#ff8f05')
+                        icon: "arrow-left-bold"
+                        pos: 1, 0
+                        size: screen.size[0]/3 - 2, 80
+
+                    MDFlatButton:
+                        pos: 0, 0
+                        size: screen.size[0]/3, 80
+                        on_release:
+                            quit()
+
+                    MDIconButton:
+                        theme_text_color: "Custom"
+                        text_color: rgba('#ff8f05')
+                        icon: "home-variant"
+                        pos: screen.size[0]/3 + 1, 0
+                        size: screen.size[0]/3 - 2, 80
+
+                    MDFlatButton:
+                        pos: screen.size[0]/3, 0
+                        size: screen.size[0]/3, 80
+                        on_release:
+                            app.screen_action("home_screen", "left", "T")
+
+                    MDIconButton:
+                        theme_text_color: "Custom"
+                        text_color: rgba('#ff8f05')
+                        icon: "cogs"
+                        pos: 2 * screen.size[0]/3 + 1, 0
+                        size: screen.size[0]/3 - 2, 80
+
+                    MDFlatButton:
+                        pos: 2 * screen.size[0]/3, 0
+                        size: screen.size[0]/3, 80
+
+                    ScrollView:
+                        size_hint: 1, None
+                        size: screen.size[0]-20,  screen.size[1] - 250
+                        pos: 10, 80
+                        GridLayout:
+                            id: main_grid
+                            cols: 1
+                            GridLayout:
+                                id: action_grid
+                                padding: 10, 20
+                                spacing: 10, 10
+                                cols: 2

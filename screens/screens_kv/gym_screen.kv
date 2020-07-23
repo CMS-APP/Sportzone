@@ -1,0 +1,194 @@
+#:import NavigationDrawer screens.navigation_drawer.NavigationDrawer
+
+<Button>:
+    font_name: "Geosans"
+    font_size: 25
+    size_hint_y: None
+    height: 100
+
+<GridLayout>:
+    size_hint_y: None
+    height: self.minimum_height
+
+<GymScreen>:
+    name: "gym_screen"
+    main_scroll: main_scroll
+    NavigationLayout:
+        ScreenManager:
+            Screen:
+                id: screen
+                FloatLayout:
+                    canvas:
+                        Color:
+                            rgba: rgba('#ffffff')
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+                        Color:
+                            rgba: rgba('#75ff85')
+                        Rectangle:
+                            pos: self.pos[0], self.height - 125
+                            size: self.size[0], 125
+
+                        Color:
+                            rgba: rgba('#8a8a8a')
+                        Rectangle:
+                            pos: self.pos[0], self.height - 125
+                            size: self.size[0], 1
+
+                        Color:
+                            rgba: rgba('#8a8a8a')
+                        Rectangle:
+                            pos: 0, 80
+                            size: self.size[0], 1
+
+                        Color:
+                            rgba: rgba('#8a8a8a')
+                        Rectangle:
+                            pos: self.size[0]/3, 0
+                            size: 1, 80
+
+                        Color:
+                            rgba: rgba('#8a8a8a')
+                        Rectangle:
+                            pos: 2 * self.size[0]/3, 0
+                            size: 1, 80
+
+                    MDLabel:
+                        size: Window.size[0], 100
+                        pos: 25, Window.size[1]/2 - 40
+                        text: "Gym"
+                        font_name: "Geosans"
+                        color: 0, 0, 0, 1
+                        font_size: 50
+
+                    MDIconButton:
+                        theme_text_color: "Custom"
+                        text_color: rgba('#75ff85')
+                        icon: "arrow-left-bold"
+                        pos: 1, 0
+                        size: screen.size[0]/3 - 2, 80
+
+                    MDFlatButton:
+                        pos: 0, 0
+                        size: screen.size[0]/3, screen.size[1]/10
+                        on_release:
+                            app.screen_action("home_screen", "right", "R/T").start()
+
+                    MDIconButton:
+                        theme_text_color: "Custom"
+                        text_color: rgba('#75ff85')
+                        icon: "home-variant"
+                        pos: screen.size[0]/3 + 1, 0
+                        size: screen.size[0]/3 - 2, 80
+
+                    MDFlatButton:
+                        pos: screen.size[0]/3, 0
+                        size: screen.size[0]/3, 80
+                        on_release:
+                            app.screen_action("home_screen", "right", "R/T").start()
+
+                    MDIconButton:
+                        theme_text_color: "Custom"
+                        text_color: rgba('#75ff85')
+                        icon: "cogs"
+                        pos: 2 * screen.size[0]/3 + 1, 0
+                        size: screen.size[0]/3 - 2, 80
+
+                    MDFlatButton:
+                        pos: 2 * screen.size[0]/3, 0
+                        size: screen.size[0]/3, 80
+
+                    ScrollView:
+                        id: main_scroll
+                        size_hint: 1, None
+                        height:  screen.size[1] - 205
+                        pos: 0, 80
+                        GridLayout:
+                            id: scroll_grid
+                            spacing: 0, 10
+                            padding: 10, 0
+                            cols: 1
+                            Label:
+                                id: routine_label
+                                size_hint_y:
+                                size_hint: 1, None
+                                text: "All available routines"
+                                color: 0, 0, 0, 1
+                                font_name: "Geosans"
+                                font_size: 25
+                                height: 40
+
+                            GridLayout:
+                                cols: 3
+                                size_hint: 1, None
+                                height: 10
+                                Label:
+                                    id: swipe_left_label
+                                    size_hint: 1/4, None
+                                    text: ""
+                                    color: 0, 0, 0, 1
+                                    font_name: "Geosans"
+                                    halign: "center"
+                                    font_size: 15
+                                    height: 10
+                                Label:
+                                    id: double_tap_label
+                                    size_hint: 3/4, None
+                                    text: "Double tap a routine to select!"
+                                    color: 0, 0, 0, 1
+                                    font_name: "Geosans"
+                                    halign: "center"
+                                    font_size: 15
+                                    height: 10
+                                Label:
+                                    id: swipe_right_label
+                                    size_hint: 1/4, None
+                                    text: "Swipe for ->\nmore routines!"
+                                    color: 0, 0, 0, 1
+                                    font_name: "Geosans"
+                                    halign: "center"
+                                    font_size: 15
+                                    height: 10
+
+                            GridLayout:
+                                id: all_routines_grid
+                                cols: 1
+                                size_hint: 1, None
+                                height: 200
+
+                            MDRaisedButton:
+                                id: create_button
+                                size: (Window.size[0]) - 20, 75
+                                color_mode: "custom"
+                                md_bg_color: rgba('#75ff85')
+                                font_name: "Geosans"
+                                font_size: 30
+                                text_color: (0, 0, 0, 1)
+                                text: "Create Routine"
+                                on_release:
+                                    screen = app.screen_action("create_screen", "left", "R/T").create_routine()
+
+                    MDCard:
+                        id: routine_display
+                        size_hint: 1, None
+                        height: screen.size[1]-205
+                        pos: screen.width+50, 80
+                        canvas:
+                            Color:
+                                rgba: rgba('#75ff85')
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: rgba('#ffffff')
+                            Rectangle:
+                                pos: self.pos[0] + 2, self.pos[1] + 2
+                                size: self.size[0] - 4, self.size[1] - 4
+                        GridLayout:
+                            id: routine_display_grid
+                            cols: 1
+                            padding: 10, 10
+                            spacing: 10, 10
+                            size_hint_y: 1

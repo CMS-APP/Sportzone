@@ -1,0 +1,47 @@
+1:Bench press:Compound:Chest:Barbell:False:20.0
+2:Squat:Compound:Legs:Barbell:False:20.0
+3:Deadlift:Compound:Back:Barbell:False:20.0
+4:Dumbell press:Compound:Chest:Dumbbell:True:20.0
+5:Incline bench press:Compound:Chest:Barbell:False:20.0
+6:Incline dumbbell flyes:Isolation:Chest:Dumbbell:True:10.0
+7:Lying triceps extension:Isolation:Arms:Barbell:False:10.0
+8:Rope extension:Isolation:Arms:Machine:False:10.0
+9:Dumbell flyes:Isolation:Chest:Dumbbell:True:10.0
+10:Triceps push down:Isolation:Arms:Machine:True:10.0
+11:Arnold press:Compound:Shoulders:Dumbbell:True:10.0
+12:Barbell curl:Isolation:Arms:Barbell:False:10.0
+13:Barbell row:Compound:Back:Barbell:False:20.0
+14:Cable row:Compound:Back:Machine:False:10.0
+15:Close grip lat pulldown:Isolation:Back:Machine:False:10.0
+16:Crunch:Body-weight:Abs:Body-weight:False:0.0
+17:Decline crunch:Body-weight:Abs:Body-weight:False:0.0
+18:Dumbbell curl:Isolation:Arms:Dumbbell:True:10.0
+19:Dumbbell row:Compound:Back:Dumbbell:True:20.0
+20:Dumbbell shoulder press:Compound:Shoulders:Dumbbell:True:10.0
+21:Dumbbell side bend:Isolation:Abs:Dumbbell:True:5.0
+22:Front dumbbell raise:Isolation:Shoulders:Dumbbell:False:10.0
+23:Hammer curl:Isolation:Arms:Dumbbell:True:10.0
+24:Hanging leg raise:Body-weight:Abs:Body-weight:False:0.0
+25:Incline situp twist:Body-weight:Abs:Body-weight:False:0.0
+26:Lat pulldown:Isolation:Back:Machine:False:10.0
+27:Lateral raise:Isolation:Shoulders:Dumbbell:True:10.0
+28:Leg curl:Isolation:Legs:Machine:False:10.0
+29:Leg extension:Isolation:Legs:Machine:False:10.0
+30:Leg press:Isolation:Legs:Machine:False:20.0
+31:Leg press calf raise:Isolation:Legs:Machine:False:10.0
+32:Oblique crunch:Body-weight:Abs:Body-weight:True:0.0
+33:Lying leg raise:Body-weight:Abs:Body-weight:False:0.0
+34:Shoulder press:Compound:Shoulders:Barbell:False:20.0
+35:Reverse crunch:Body-weight:Abs:Body-weight:False:0.0
+36:Shrug:Isolation:Shoulders:Barbell:False:20.0
+37:Standing calf raise:Isolation:Legs:Dumbbell:False:10.0
+38:Weighted decline:Isolation:Abs:Dumbbell:False:5.0
+39:Weighted leg raise:Isolation:Abs:Dumbbell:False:5.0
+40:Press ups:Body-weight:Chest:Body-weight:False:0.0
+41:Dumbbell triceps extenstion:Isolation:Arms:Dumbbell:True:10.0
+42:Dumbbell lunges:Compound:Legs:Dumbbell:True:8
+43:Paused horizontal band rows:Compound:Back:Bands:True:0.0
+44:Back band fly:Compound:Back:Bands:False:0.0
+45:Reverse dumbbell curl:Isolation:Arms:Dumbbell:True:8.0
+46:Lateral band raises:Isolation:Shoulders:Bands:True:0.0
+47:Dumbbell squat:Compound:Legs:Dumbbell:False:16.0

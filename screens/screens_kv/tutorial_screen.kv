@@ -1,0 +1,40 @@
+<AnimationScroll>:
+
+<TutorialScreen>:
+    id: screen
+    FloatLayout:
+        canvas:
+            Color:
+                rgba: rgba('#ffffff')
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+            Color:
+                rgba: rgba('#ff8f05')
+            Rectangle:
+                pos: self.pos[0], self.height - 125
+                size: self.size[0], 125
+
+            Color:
+                rgba: rgba('#8a8a8a')
+            Rectangle:
+                pos: self.pos[0], self.height - 125
+                size: self.size[0], 1
+
+        MDLabel:
+            text: "Welcome to the Sport zone!"
+            size_hint: None, None
+            size: Window.size[0] - 20, 100
+            pos: 20, Window.size[1] - 90
+            halign: "left"
+            font_name: "Geosans"
+            font_size: 35
+
+        MDLabel:
+            id: welcome_label
+            size: Window.size[0], 100
+            pos: 25, Window.size[1]/2 - 80
+            halign: "left"
+            font_name: "Geosans"
+            font_size: 30
