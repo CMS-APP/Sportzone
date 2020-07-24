@@ -9,7 +9,7 @@ from kivymd.app import MDApp
 # Import new font
 LabelBase.register(name="Geosans", fn_regular="fonts/GeosansLight.ttf", fn_italic="fonts/GeosansLight-Oblique.ttf")
 # Change screen size to match phone size
-Window.size = [500, 1000]
+Window.size = [300, 600]
 # Import all screens used inside the add
 from screens.home_screen import HomeScreen
 from screens.gym_screen import GymScreen

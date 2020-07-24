@@ -172,7 +172,7 @@ class IntegerInput(MDTextField):
         self.routine_grid, self.text = routine_grid, str(start_number)
         self.size_hint = [1 / 3, None]
         self.font_name = "Geosans"
-        self.font_size = 20
+        self.font_size = 30
         self.color_mode = 'custom'
         self.line_color_focus, self.line_color_normal = (0, 0, 0, 1), (0, 0, 0, 1)
         self.current_hint_text_color = (0, 0, 0, 1)
@@ -213,15 +213,15 @@ class ExerciseGrid(GymCard):
         super(ExerciseGrid, self).__init__(**kwargs)
         self.selected_exercise = selected_exercise
         self.routine_grid = routine_grid
-        self.height = 175
+        self.height = 265
 
         # Grid for the exercise name and 'Delete' buttons
         name_grid = GridLayout(cols=2, size_hint_x=1, spacing=[10, 0], padding=[10, 0])
         KivyButton(grid=name_grid, md_bg_color=L_GREEN, on_release_action=self.exercise_info,
-                   font_size=20, size_hint=[1 / 2, None], text=selected_exercise.name, height=50)
+                   font_size=15, size_hint=[1 / 2, None], text=selected_exercise.name, height=50)
 
         KivyButton(grid=name_grid, md_bg_color=L_GREEN, on_release_action=self.delete_exercise,
-                   font_size=20, size_hint=[1 / 2, None], text="Delete", height=50)
+                   font_size=15, size_hint=[1 / 2, None], text="Delete", height=50)
         self.add_widget(name_grid)
 
         start_numbers = [8, 1, 20, 4, 0, 90]
@@ -259,9 +259,9 @@ class SuperSetExerciseGrid(GridLayout):
         self.cols, self.size_hint_x = 1, 1
         self.spacing, self.all_text_inputs = [25, 0], []
         self.exercise_grid = GridLayout(cols=2, size_hint_x=1, spacing=[10, 0])
-        KivyButton(grid=self.exercise_grid, md_bg_color=L_GREEN, font_size=20,
+        KivyButton(grid=self.exercise_grid, md_bg_color=L_GREEN, font_size=15,
                    on_release_action=self.exercise_info, size_hint=[1 / 2, None], text=selected_exercise.name)
-        KivyButton(grid=self.exercise_grid, md_bg_color=L_GREEN, font_size=20,
+        KivyButton(grid=self.exercise_grid, md_bg_color=L_GREEN, font_size=15,
                    on_release_action=self.delete_exercise, size_hint=[1 / 2, None], text="Delete Exercise")
         self.add_widget(self.exercise_grid)
         if exercise_data is not None:
@@ -307,7 +307,7 @@ class SuperSetGrid(GymCard):
 
         name_grid = GridLayout(cols=2, size_hint_x=1, spacing=[10, 0])
         KivyLabel(grid=name_grid, font_size=30, size_hint=[1 / 2, None], text="Super-Set", height=50)
-        KivyButton(grid=name_grid, md_bg_color=L_GREEN, font_size=20,
+        KivyButton(grid=name_grid, md_bg_color=L_GREEN, font_size=15,
                    on_release_action=self.delete_super_set, size_hint=[1 / 2, None],
                    text="Delete Super Set")
 
@@ -319,7 +319,7 @@ class SuperSetGrid(GymCard):
         # Function to add the 'Add Exercise' button to the super set grid
         if len(self.all_exercises) < 3 and self.add_exercise_button is None:
             self.height += 60
-            self.add_exercise_button = KivyButton(grid=self.main_grid, md_bg_color=L_GREEN, font_size=25,
+            self.add_exercise_button = KivyButton(grid=self.main_grid, md_bg_color=L_GREEN, font_size=15,
                                                   on_release_action=self.insert_muscle_pick, size_hint=[1 / 2, None],
                                                   text="Add Exercise")
 
@@ -337,7 +337,7 @@ class SuperSetGrid(GymCard):
     def add_exercise(self, selected_exercise, super_set_data=None, exercise_data=None):
         # Adds the selected exercise to the routine
         self.remove_add_exercise_button()
-        self.height += 190
+        self.height += 280
         if self.initial_text_input_grid is None:
             super_set_numbers = [4, 90]
             if super_set_data is not None:
@@ -353,7 +353,7 @@ class SuperSetGrid(GymCard):
                 self.all_text_inputs.append(text_input)
 
             self.main_grid.add_widget(self.initial_text_input_grid)
-            self.height += 85
+            self.height += 125
         self.exercise_grid = SuperSetExerciseGrid(selected_exercise, self, exercise_data)
         self.all_exercises.append(self.exercise_grid)
         self.main_grid.add_widget(self.exercise_grid)
@@ -425,9 +425,9 @@ class RoutineGrid(GridLayout):
             self.add_button_grid = GridLayout(cols=2, size_hint=[1, None], height=50, spacing=[10, 0])
             self.add_widget(self.add_button_grid)
             for text, action in zip(button_info[0], button_info[1]):
-                KivyButton(self.add_button_grid, L_GREEN, 25, action, [1 / 2, None], text=text)
+                KivyButton(self.add_button_grid, L_GREEN, 15, action, [1 / 2, None], text=text)
         if self.finish_button is None and len(self.all_sets) > 0:
-            self.finish_button = KivyButton(self, L_GREEN, 25, self.finish_routine, [1, None],
+            self.finish_button = KivyButton(self, L_GREEN, 15, self.finish_routine, [1, None],
                                             text="Finish Routine")
         elif self.finish_button is not None and len(self.all_sets) == 0:
             self.remove_widget(self.finish_button)
@@ -633,7 +633,7 @@ class CreateScreen(Screen):
             if selected_exercise.muscle == self.muscle_selected or self.muscle_selected is None:
                 # Checks the muscle selected is the exercise's muscle group
                 if search:
-                    if search_text in selected_exercise.name.lower():
+                    if search_text.lower() in selected_exercise.name.lower():
                         add_exercise_item(selected_exercise)
                 else:
                     add_exercise_item(selected_exercise)

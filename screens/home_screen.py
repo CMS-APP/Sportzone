@@ -81,7 +81,7 @@ class HomeScreen(Screen):
     def start(self):
         self.update_event = Clock.schedule_interval(self.update, 0)
         self.ids.action_grid.clear_widgets()
-        KivyButton(grid=self.ids.action_grid, md_bg_color=ORANGE, font_size=25, on_release_action=self.gym_action,
+        KivyButton(grid=self.ids.action_grid, md_bg_color=ORANGE, font_size=15, on_release_action=self.gym_action,
                    size_hint=[1 / 2, None], height=50, text="Gym")
 
         KivyLabel(grid=self.ids.action_grid, font_size=25, size_hint=[1 / 2, None], height=50)
