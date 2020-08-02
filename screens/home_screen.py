@@ -1,5 +1,3 @@
-import os
-import sys
 from datetime import datetime
 
 from kivy.clock import Clock
@@ -10,13 +8,10 @@ from kivy.uix.screenmanager import Screen
 from kivymd.uix.card import MDCard
 from kivymd.uix.label import MDLabel
 
+from files.file_handling import read_file
 from screens.kivy_objects import KivyButton, KivyLabel, ORANGE
 
 Builder.load_file("Screens/Screens_kv/home_screen.kv")
-
-sys.path.insert(1, os.path.abspath("../") + '/Sportzone/files')
-
-from file_handling import read_file
 
 # Used so a non-numerical date is displayed
 DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]

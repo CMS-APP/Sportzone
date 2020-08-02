@@ -1,6 +1,3 @@
-import os
-import sys
-
 from kivy.animation import Animation
 from kivy.core.window import Window
 from kivy.lang.builder import Builder
@@ -10,12 +7,9 @@ from kivy.uix.scrollview import ScrollView
 from kivymd.uix.card import MDCard, MDSeparator
 from kivymd.uix.label import MDLabel
 
+from files.file_handling import read_file, write_file
+from files.gym_files.gym_objects import Exercise, SuperSet
 from screens.kivy_objects import KivyButton, KivyLabel, L_GREEN
-
-sys.path.insert(1, os.path.abspath("../") + '/Sportzone/files')
-
-from gym_files.gym_objects import Exercise, SuperSet
-from file_handling import read_file, write_file
 
 Builder.load_file("Screens/Screens_kv/gym_screen.kv")
 
@@ -173,7 +167,8 @@ class GymScreen(Screen):
 
         title_grid = GridLayout(cols=2)
         self.ids.routine_display_grid.add_widget(title_grid)
-        KivyLabel(grid=title_grid, font_size=(45 - len(routine.name)), halign="left", text=routine.name, size_hint=[1 / 2, None], height=50)
+        KivyLabel(grid=title_grid, font_size=(45 - len(routine.name)), halign="left", text=routine.name,
+                  size_hint=[1 / 2, None], height=50)
         KivyButton(grid=title_grid, md_bg_color=L_GREEN, font_size=25,
                    on_release_action=self.hide_routine, size_hint=[1 / 2, None], text="Back", height=50)
 
@@ -251,7 +246,7 @@ class GymScreen(Screen):
         Animation(x=0, duration=0.2).start(self.ids.routine_display)
 
     def hide_routine(self):
-        Animation(x=self.width+50, duration=0.2).start(self.ids.routine_display)
+        Animation(x=self.width + 50, duration=0.2).start(self.ids.routine_display)
         self.selected_routine, self.ids.main_scroll.do_scroll_y = None, True
 
     def start_routine(self):

@@ -1,6 +1,4 @@
-import os
 import re
-import sys
 
 from kivy.animation import Animation
 from kivy.core.window import Window
@@ -13,12 +11,9 @@ from kivymd.uix.card import MDCard, MDSeparator
 from kivymd.uix.list import OneLineIconListItem
 from kivymd.uix.textfield import MDTextField
 
+from files.file_handling import save_new_routine
+from files.gym_files.gym_objects import get_exercises, SuperSetExercise, Exercise, SuperSet
 from screens.kivy_objects import KivyButton, KivyLabel, L_GREEN
-
-sys.path.insert(1, os.path.abspath("../") + '/fitness_dev_v0.3/files')
-
-from gym_files.gym_objects import get_exercises, SuperSetExercise, Exercise, SuperSet
-from file_handling import save_new_routine
 
 Builder.load_file("Screens/Screens_kv/create_screen.kv")
 

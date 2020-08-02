@@ -17,7 +17,7 @@ from kivymd.uix.textfield import MDTextField
 sys.path.insert(1, os.path.abspath("../") + '/fitness_dev_v0.3/files')
 Builder.load_file("Screens/Screens_kv/signup_screen.kv")
 
-from file_handling import write_file
+from files.file_handling import write_file
 
 
 class CurrentUser:

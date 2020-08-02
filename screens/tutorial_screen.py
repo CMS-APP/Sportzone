@@ -1,5 +1,3 @@
-import os
-import sys
 from datetime import datetime
 
 from kivy.core.window import Window
@@ -7,11 +5,9 @@ from kivy.lang.builder import Builder
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.screenmanager import Screen
 from kivy.uix.scrollview import ScrollView
+
+from files.file_handling import write_file
 from screens.kivy_objects import KivyButton, KivyLabel
-
-sys.path.insert(1, os.path.abspath("../") + '/fitness_dev_v0.3/files')
-
-from file_handling import read_file, write_file
 
 Builder.load_file("Screens/Screens_kv/tutorial_screen.kv")
 

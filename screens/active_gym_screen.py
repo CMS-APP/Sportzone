@@ -1,6 +1,3 @@
-import os
-import sys
-
 from kivy.animation import Animation
 from kivy.clock import Clock
 from kivy.graphics import *
@@ -10,13 +7,10 @@ from kivy.uix.screenmanager import Screen
 from kivymd.uix.button import MDIconButton
 from kivymd.uix.label import MDLabel
 
+from files.file_handling import save_new_routine
+from files.gym_files.gym_objects import Exercise, SuperSet
 from screens.create_screen import GymCard, IntegerInput
 from screens.kivy_objects import KivyButton, KivyLabel, L_GREEN
-
-sys.path.insert(1, os.path.abspath("../") + '/fitness_dev_v0.3/files')
-
-from gym_files.gym_objects import Exercise, SuperSet
-from file_handling import save_new_routine
 
 Builder.load_file("Screens/Screens_kv/active_gym_screen.kv")
 
@@ -500,7 +494,7 @@ class ActiveGymScreen(Screen):
             elif exercise_button.exercise.base_exercise.equipment == "Barbell":
                 label_text = "The total weight of the barbell (usually 20kg/45lb) and the plates on either side"
 
-            self.info_label = KivyLabel(grid=self, font_size=20, halign="center", size_hint=[3/4, 1 / 3],
+            self.info_label = KivyLabel(grid=self, font_size=20, halign="center", size_hint=[3 / 4, 1 / 3],
                                         pos_hint={"center_x": 1 / 2, "top": 3 / 4}, color=(0, 0, 0, 1), text=label_text)
 
             self.save_button = KivyButton(grid=self, md_bg_color=L_GREEN, font_size=25, on_release_action=None,
@@ -513,8 +507,8 @@ class ActiveGymScreen(Screen):
 
     def update_bg(self, *args):
         self.background.size, self.background.pos = [self.width, self.height], [0, 0]
-        self.weight_rect.size, self.weight_rect.pos = [self.width * 3/ 4, self.height / 2], [self.width / 8,
-                                                                                          self.height / 4]
+        self.weight_rect.size, self.weight_rect.pos = [self.width * 3 / 4, self.height / 2], [self.width / 8,
+                                                                                              self.height / 4]
 
     def weight_touch_up(self, *args):
         if not self.width / 4 < args[1].x < self.width * (3 / 4) or not self.height / 4 < args[1].y < self.height * (

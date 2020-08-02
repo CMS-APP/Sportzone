@@ -1,7 +1,7 @@
 import os
 import pickle
 
-from gym_files.gym_objects import Routine
+from files.gym_files.gym_objects import Routine
 
 
 def write_file(file, contents):

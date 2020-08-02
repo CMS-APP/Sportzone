@@ -1,11 +1,6 @@
-import sys
-import os
-
 from kivy.clock import Clock
 from kivy.lang.builder import Builder
 from kivy.uix.screenmanager import Screen
-
-sys.path.insert(1, os.path.abspath("../") + '/fitness_dev_v0.3/files')
 
 Builder.load_file("Screens/Screens_kv/login_screen.kv")
 

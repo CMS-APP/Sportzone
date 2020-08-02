@@ -1,25 +1,19 @@
-import os
-import sys
-
 from kivy.core.text import LabelBase
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager
 from kivymd.app import MDApp
 
+from files.file_handling import read_file
+from screens.active_gym_screen import ActiveGymScreen
+from screens.create_screen import CreateScreen
+from screens.gym_screen import GymScreen
+from screens.home_screen import HomeScreen
+from screens.tutorial_screen import TutorialScreen
+
 # Import new font
 LabelBase.register(name="Geosans", fn_regular="fonts/GeosansLight.ttf", fn_italic="fonts/GeosansLight-Oblique.ttf")
 # Change screen size to match phone size
-Window.size = [500, 1000]
-# Import all screens used inside the add
-from screens.home_screen import HomeScreen
-from screens.gym_screen import GymScreen
-from screens.create_screen import CreateScreen
-from screens.active_gym_screen import ActiveGymScreen
-from screens.tutorial_screen import TutorialScreen
-
-sys.path.insert(1, os.path.abspath("../") + '/fitness_dev_v0.3/files')
-
-from file_handling import read_file
+Window.size = [500, 800]
 
 all_screens = [HomeScreen, GymScreen, ActiveGymScreen, CreateScreen]
 screen_manager = ScreenManager()
