@@ -221,7 +221,7 @@ class ExerciseGrid(GymCard):
 
         title_grid = GridLayout(cols=2, size_hint=[1, None], height=40)
         grid.add_widget(title_grid)
-        KivyButton(grid=title_grid, md_bg_color=L_GREEN, font_size=20, on_release_action=None, size_hint=[1 / 2, None],
+        KivyButton(grid=title_grid, md_bg_color=L_GREEN, font_size=15, on_release_action=None, size_hint=[1 / 2, None],
                    height=40, text=f"{self.base_exercise.name}")
         self.rest_title = KivyLabel(title_grid, font_size=25, halign="right", size_hint=[1 / 2, None], height=40)
 
@@ -232,11 +232,11 @@ class ExerciseGrid(GymCard):
         if self.base_exercise.each_side:
             rep_text += " each side"
 
-        weight_button = KivyButton(grid=exercise_info_grid, md_bg_color=L_GREEN, font_size=20, on_release_action=None,
+        weight_button = KivyButton(grid=exercise_info_grid, md_bg_color=L_GREEN, font_size=15, on_release_action=None,
                                    size_hint=[1 / 2, None], height=40, text=f"{self.weight} kg")
         weight_button.bind(on_release=lambda weight_button: screen.change_weight_action(weight_button))
 
-        KivyLabel(grid=exercise_info_grid, font_size=20, halign="center", size_hint=[1 / 2, None], height=40,
+        KivyLabel(grid=exercise_info_grid, font_size=30, halign="center", size_hint=[1 / 2, None], height=40,
                   text=rep_text)
 
         grid.add_widget(exercise_info_grid)
@@ -360,8 +360,8 @@ class SuperSetGrid(GymCard):
 
         title_grid = GridLayout(cols=2, size_hint=[1, None], height=40)
 
-        KivyLabel(grid=title_grid, font_size=25, halign="center", size_hint=[1 / 2, None], text="Super-Set", height=40)
-        self.rest_title = KivyLabel(grid=title_grid, font_size=25, halign="right", size_hint=[1 / 2, None], height=40)
+        KivyLabel(grid=title_grid, font_size=30, halign="center", size_hint=[1 / 2, None], text="Super-Set", height=40)
+        self.rest_title = KivyLabel(grid=title_grid, font_size=30, halign="right", size_hint=[1 / 2, None], height=40)
         grid.add_widget(title_grid)
 
         exercise_button_grid = GridLayout(rows=1, cols=len(self.active_exercises), size_hint=[1, None],
@@ -384,11 +384,11 @@ class SuperSetGrid(GymCard):
             for word in exercise.base_exercise.name.split(" "):
                 new_name.append(word.capitalize())
 
-            button = KivyButton(grid=exercise_button_grid, md_bg_color=L_GREEN, font_size=20,
+            button = KivyButton(grid=exercise_button_grid, md_bg_color=L_GREEN, font_size=15,
                                 size_hint=[1 / len(self.active_exercises), None], text="\n".join(new_name), height=30)
             button.bind(on_release=lambda exercise_button: self.exercise_info(exercise_button.exercise))
 
-            button = KivyButton(grid=exercise_weight, md_bg_color=L_GREEN, font_size=20,
+            button = KivyButton(grid=exercise_weight, md_bg_color=L_GREEN, font_size=15,
                                 size_hint=[1 / len(self.active_exercises), None], text=f"{exercise.weight} kg",
                                 height=30)
             button.exercise = exercise
@@ -470,7 +470,7 @@ class ActiveGymScreen(Screen):
                 self.all_grids.append(grid)
                 self.ids.active_routine_grid.add_widget(grid)
 
-        KivyButton(grid=self.ids.active_routine_grid, md_bg_color=L_GREEN, font_size=25,
+        KivyButton(grid=self.ids.active_routine_grid, md_bg_color=L_GREEN, font_size=15,
                    on_release_action=self.finish_routine, size_hint=[1, None], height=100, text="Finish Routine")
 
     def change_weight_action(self, exercise_button, *args):

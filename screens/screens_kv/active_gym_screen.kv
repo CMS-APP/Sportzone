@@ -11,52 +11,52 @@
                         Rectangle:
                             pos: self.pos
                             size: self.size
-
                         Color:
                             rgba: rgba('#75ff85')
                         Rectangle:
-                            pos: self.pos[0], self.height*0.8
-                            size: self.size[0], self.size[1]*0.2
+                            pos: 0, self.height-125
+                            size: self.size[0], 125
 
                         Color:
                             rgba: rgba('#8a8a8a')
                         Rectangle:
-                            pos: self.pos[0], self.height*0.8
+                            pos: 0, self.height-125
                             size: self.size[0], 1
 
                         Color:
                             rgba: rgba('#8a8a8a')
                         Rectangle:
-                            pos: 0, self.size[1]/10
+                            pos: 0, 80
                             size: self.size[0], 1
 
                         Color:
                             rgba: rgba('#8a8a8a')
                         Rectangle:
                             pos: self.size[0]/3, 0
-                            size: 1, self.size[1]/10
+                            size: 1, 80
 
                         Color:
                             rgba: rgba('#8a8a8a')
                         Rectangle:
                             pos: 2 * self.size[0]/3, 0
-                            size: 1, self.size[1]/10
+                            size: 1, 80
 
                     MDLabel:
                         id: title
                         font_size: 50
                         font_name: "Geosans"
                         color: 0, 0, 0, 1
-                        size_hint: 1/2, 1/5
-                        pos_hint: {"x": 0.05, "y":4/5}
+                        size: screen.width, 100
+                        pos: 20, screen.height/2 - 50
 
                     ScrollView:
                         id: main_scroll
-                        size_hint: 7/8, 7/10 - 0.002
-                        pos_hint: {"x":1/16, "y": 0.102}
+                        size_hint: None, None
+                        size: screen.width, screen.height-205
+                        pos: 0, 80
                         GridLayout:
                             id: active_routine_grid
-                            padding: 0, 10
+                            padding: 10, 10
                             spacing: 0, 10
                             size_hint_y: None
                             height: self.minimum_height
@@ -66,12 +66,13 @@
                         theme_text_color: "Custom"
                         text_color: rgba('#75ff85')
                         icon: "arrow-left-bold"
+                        user_font_size: 80
                         pos: 1, 0
-                        size: screen.size[0]/3 - 2, screen.size[1]/10
+                        size: screen.size[0]/3 - 2, 80
 
                     MDFlatButton:
                         pos: 0, 0
-                        size: screen.size[0]/3, screen.size[1]/10
+                        size: screen.size[0]/3, 80
                         on_release:
                             root.gym_screen()
 
@@ -79,12 +80,13 @@
                         theme_text_color: "Custom"
                         text_color: rgba('#75ff85')
                         icon: "home-variant"
+                        user_font_size: 80
                         pos: screen.size[0]/3 + 1, 0
-                        size: screen.size[0]/3 - 2, screen.size[1]/10
+                        size: screen.size[0]/3 - 2, 80
 
                     MDFlatButton:
                         pos: screen.size[0]/3, 0
-                        size: screen.size[0]/3, screen.size[1]/10
+                        size: screen.size[0]/3, 80
                         on_release:
                             root.home_screen()
 
@@ -92,9 +94,10 @@
                         theme_text_color: "Custom"
                         text_color: rgba('#75ff85')
                         icon: "cogs"
+                        user_font_size: 80
                         pos: 2 * screen.size[0]/3 + 1, 0
-                        size: screen.size[0]/3 - 2, screen.size[1]/10
+                        size: screen.size[0]/3 - 2, 80
 
                     MDFlatButton:
                         pos: 2 * screen.size[0]/3, 0
-                        size: screen.size[0]/3, screen.size[1]/10
+                        size: screen.size[0]/3, 80

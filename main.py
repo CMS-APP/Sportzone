@@ -4,6 +4,11 @@ from kivy.uix.screenmanager import ScreenManager
 from kivymd.app import MDApp
 
 from files.file_handling import read_file
+# Import new font
+LabelBase.register(name="Geosans", fn_regular="fonts/GeosansLight.ttf", fn_italic="fonts/GeosansLight-Oblique.ttf")
+# Change screen size to match phone size
+Window.size = [300, 600]
+# Import all screens used inside the add
 from screens.active_gym_screen import ActiveGymScreen
 from screens.create_screen import CreateScreen
 from screens.gym_screen import GymScreen

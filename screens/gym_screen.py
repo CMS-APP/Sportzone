@@ -169,7 +169,8 @@ class GymScreen(Screen):
         self.ids.routine_display_grid.add_widget(title_grid)
         KivyLabel(grid=title_grid, font_size=(45 - len(routine.name)), halign="left", text=routine.name,
                   size_hint=[1 / 2, None], height=50)
-        KivyButton(grid=title_grid, md_bg_color=L_GREEN, font_size=25,
+        KivyLabel(grid=title_grid, font_size=(45 - len(routine.name)), halign="left", text=routine.name, size_hint=[1 / 2, None], height=50)
+        KivyButton(grid=title_grid, md_bg_color=L_GREEN, font_size=15,
                    on_release_action=self.hide_routine, size_hint=[1 / 2, None], text="Back", height=50)
 
         set_number, exercise_number = 0, 0
@@ -238,7 +239,7 @@ class GymScreen(Screen):
                               "Delete Routine": self.delete_routine}
 
         for button_text, action in action_button_dict.items():
-            KivyButton(grid=action_grid, md_bg_color=L_GREEN, font_size=20,
+            KivyButton(grid=action_grid, md_bg_color=L_GREEN, font_size=15,
                        on_release_action=action, size_hint=[1 / 3, None], text=button_text)
 
         KivyLabel(self.ids.routine_display_grid)
